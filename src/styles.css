@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-rojo: #b30000;
+  --color-gris: #f2f2f2;
+  --color-azul: #004aad;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-gris);
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

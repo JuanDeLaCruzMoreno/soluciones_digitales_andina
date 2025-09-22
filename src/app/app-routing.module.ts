@@ -1,0 +1,22 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { ServiciosComponent } from './pages/servicios/servicios.component';
+import { DetalleComponent } from './pages/detalle/detalle.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CrudComponent } from './pages/crud/crud.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'servicios', component: ServiciosComponent },
+  { path: 'detalle/:id', component: DetalleComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: CrudComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

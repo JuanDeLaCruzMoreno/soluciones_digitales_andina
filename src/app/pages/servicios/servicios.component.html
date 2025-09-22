@@ -1,0 +1,46 @@
+<div class="contenedor">
+  <section class="encabezado">
+  <div class="bloque-encabezado">
+    <p class="subtitulo">Nuestros servicios</p>
+    <h1 class="titulo">Soluciones Digitales Andinas S.A.S: </h1>
+    <h2 class="titulo-secundario">Soluciones digitales para empresas colombianas</h2>
+    <p class="descripcion">
+      Diseñamos y desarrollamos soluciones tecnológicas que se ajustan a las necesidades de las empresas colombianas. Explora nuestros servicios y encuentra la opción ideal para transformar tu negocio.
+    </p>
+  </div>
+</section>
+
+  <div class="volver">
+    <a routerLink="/" class="btn-volver"><span class="flecha-volver">❮</span> Volver</a>
+  </div>
+
+  <div class="carrusel-container">
+    <button class="flecha izquierda" *ngIf="mostrarFlechaIzquierda" (click)="scrollIzquierda()">❮</button>
+
+    <div class="carrusel" #scrollContainer (scroll)="verificarFlechas()">
+      <div class="card" *ngFor="let servicio of servicios">
+        <div class="new-badge" *ngIf="servicio.nuevo">New</div>
+
+        <div class="icono">
+          <img src="assets/img/corazon.svg" alt="icono institucional" />
+        </div>
+
+        <h3>{{ servicio.nombre }}</h3>
+        <p class="precio">COP ${{ servicio.precio | number }}</p>
+        <p class="desde">Desde</p>
+        <p class="descripcion">💬 {{ servicio.descripcion }}</p>
+
+        <a [routerLink]="['/detalle', servicio.id]" class="btn">Conoce más</a>
+
+        <ul class="caracteristicas">
+          <li *ngFor="let c of servicio.caracteristicas">
+            <img [src]="getCheckIcon(c)" alt="✔️" class="check-icon" />
+            <span class="check-text">{{ c }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="flecha derecha" *ngIf="mostrarFlechaDerecha" (click)="scrollDerecha()">❯</button>
+  </div>
+</div>

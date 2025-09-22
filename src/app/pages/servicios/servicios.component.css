@@ -1,0 +1,184 @@
+body {
+  background-color: #fff;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.encabezado {
+  text-align: left;
+  padding: 40px 0 20px;
+}
+
+.subtitulo {
+  color: #0077cc;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.titulo {
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.titulo-secundario {
+  color: #000;               /* mismo color que el h1 */
+  font-size: 1.6rem;         /* más pequeño que el h1 */
+  font-weight: bold;         /* mismo grosor */
+  margin-bottom: 10px;       /* espacio inferior limpio */
+}
+
+.descripcion {
+  color: #444;
+  font-size: 1rem;  
+  text-align: justify;
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+
+.volver {
+  margin: 20px 0;
+}
+
+.btn-volver {
+  background-color: transparent;
+  color: #0077cc;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flecha-volver {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.carrusel-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+}
+
+.carrusel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px 0;
+  width: 100%;
+  scrollbar-width: none; /* Firefox */
+}
+
+.carrusel::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.icono {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.icono img {
+  width: 100%;
+}
+
+.precio {
+  font-weight: 800;
+  color: #0077cc;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.desde {
+  font-size: 0.85rem;
+  color: #0077cc;
+  text-align: left;
+  margin-top: 2px;
+}
+
+.btn {
+  background-color: #0077cc;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.caracteristicas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.caracteristicas li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.check-text {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.new-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.flecha {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #0077cc;
+  cursor: pointer;
+  padding: 0 10px;
+}
