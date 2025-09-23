@@ -1,1 +1,70 @@
-<p>detalle works!</p>
+<div class="contenedor">
+  <section class="encabezado-detalle">
+    <p class="subtitulo">Nuestros servicios</p>
+    <h1 class="titulo">Soluciones Digitales Andinas S.A.S</h1>
+    <a routerLink="/servicios" class="btn-volver">
+    <img src="assets/icono/volver_flecha.svg" alt="Volver a servicios" />
+    </a>
+  </section>
+
+  <div class="imagen-central">
+    <img [src]="servicio?.imagen" alt="Imagen del servicio" *ngIf="servicio?.imagen; else imagenError" />
+    <ng-template #imagenError>
+      <p class="error-imagen">⚠️ Imagen no disponible para este servicio.</p>
+    </ng-template>
+  </div>
+
+  <div *ngIf="servicio">
+    <div class="iconos-superiores">
+      <img [src]="likeIcon" (click)="toggleLike()" alt="like" />
+      <img [src]="carritoIcon" (click)="toggleCarrito()" alt="carrito" />
+      <div class="vista">
+        <img src="assets/icono/ojo.svg" alt="vista" />
+        <span>{{ contadorVistas }}</span>
+      </div>
+    </div>
+
+    <div class="titulo-ranking">
+      <h2 class="titulo-servicio">{{ servicio.nombre }}</h2>
+      <div class="ranking">🌟 4.9</div>
+    </div>
+
+    <h3 class="subtitulo-descripcion">Descripción</h3>
+    <p class="descripcion">{{ servicio.descripcion }}</p>
+
+    <div class="detalle-grid">
+      <div class="bloque">
+        <h4>Beneficios</h4>
+        <ul>
+          <li *ngFor="let b of servicio.beneficios">{{ b }}</li>
+        </ul>
+      </div>
+
+      <div class="bloque">
+        <h4>Características técnicas</h4>
+        <ul>
+          <li *ngFor="let c of servicio.caracteristicas">{{ c }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="interacciones-finales">
+      <div class="precio">
+        <span class="valor">{{ servicio.precio }}</span>
+        <span class="desde">Desde</span>
+      </div>
+      <div class="iconos-finales">
+        <img [src]="carritoIcon" (click)="toggleCarrito()" alt="carrito" />
+        <img src="assets/icono/favorito.svg" alt="favorito" />
+      </div>
+    </div>
+
+    <div class="cta">
+      <button class="cta-btn">{{ servicio.cta }}</button>
+    </div>
+  </div>
+
+  <div *ngIf="!servicio">
+    <p class="error-servicio">⚠️ Servicio no encontrado. Verifica la URL.</p>
+  </div>
+</div>

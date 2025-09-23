@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  background-color: #ffffff;
+}
+
 body {
   background-color: #fff;
 }
@@ -49,18 +54,20 @@ body {
 }
 
 .btn-volver {
-  background-color: transparent;
-  color: #0077cc;
-  font-weight: bold;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-.flecha-volver {
-  font-size: 1.2rem;
-  font-weight: bold;
+.btn-volver img {
+  width: 36px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-volver img:hover {
+  transform: scale(1.1);
 }
 
 .carrusel-container {

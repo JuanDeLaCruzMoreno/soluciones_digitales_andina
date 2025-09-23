@@ -1,6 +1,6 @@
 export const SERVICIOS = [
   {
-    id: 1,
+    id: "web",
     nombre: 'Desarrollo de Páginas Web Empresariales',
     precio: 3500000,
     descripcion: 'Diseño profesional y funcional para empresas.',
@@ -13,7 +13,7 @@ export const SERVICIOS = [
     ]
   },
   {
-    id: 2,
+    id: "app",
     nombre: '📱 Aplicaciones Móviles (Android y iOS)',
     precio: 12000000,
     descripcion: 'Aplicaciones nativas para potenciar tu negocio.',
@@ -26,7 +26,7 @@ export const SERVICIOS = [
     ]
   },
   {
-    id: 3,
+    id: "cloud",
     nombre: '☁️ Migración de Servidores a la Nube',
     precio: 2200000,
     descripcion: 'Transición segura y eficiente a la nube.',
@@ -38,7 +38,7 @@ export const SERVICIOS = [
     ]
   },
   {
-    id: 4,
+    id: "security",
     nombre: '🔐 Consultoría en Seguridad Informática',
     precio: 1800000,
     descripcion: 'Protege tu infraestructura digital con asesoría especializada.',
@@ -51,7 +51,7 @@ export const SERVICIOS = [
     ]
   },
   {
-    id: 5,
+    id: "support",
     nombre: '🔧 Soporte y Mantenimiento Mensual',
     precio: 650000,
     descripcion: 'Mantén tus sistemas funcionando sin interrupciones.',
@@ -64,7 +64,7 @@ export const SERVICIOS = [
     ]
   },
   {
-    id: 6,
+    id: "seo",
     nombre: '📈 Posicionamiento Web (SEO) y Marketing Digital',
     precio: 900000,
     descripcion: 'Aumenta tu visibilidad y atrae más clientes.',
@@ -77,7 +77,7 @@ export const SERVICIOS = [
     ]
   },
   {
-    id: 7,
+    id: "payments",
     nombre: '💳 Integración de Pasarelas de Pago y APIs',
     precio: 1200000,
     descripcion: 'Conecta tu sistema con soluciones externas de forma segura.',
@@ -90,7 +90,7 @@ export const SERVICIOS = [
     ]
   },
   {
-    id: 8,
+    id: "uiux",
     nombre: '🎨 Diseño de Interfaces y Experiencia de Usuario (UX/UI)',
     precio: 1000000,
     descripcion: 'Diseños intuitivos y centrados en el usuario.',
@@ -103,7 +103,7 @@ export const SERVICIOS = [
     ]
   },
   {
-    id: 9,
+    id: "automation",
     nombre: '🤖 Automatización de Procesos Empresariales (RPA)',
     precio: 2500000,
     descripcion: 'Reduce tareas repetitivas con bots inteligentes.',
@@ -116,7 +116,7 @@ export const SERVICIOS = [
     ]
   },
   {
-    id: 10,
+    id: "bi",
     nombre: '📊 Análisis de Datos y Business Intelligence',
     precio: 2800000,
     descripcion: 'Convierte tus datos en decisiones inteligentes.',

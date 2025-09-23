@@ -33,6 +33,7 @@ export class ServiciosComponent implements AfterViewInit {
 
   getCheckIcon(texto: string): string {
     const lower = texto.toLowerCase();
-    return lower.includes('soporte') || lower.includes('email') ? 'assets/img/check-gris.svg' : 'assets/img/check.svg';
+    return lower.includes('soporte') || lower.includes('email') ? 'assets/icono/check-gris.svg' : 'assets/icono/check.svg';
   }
+  
 }

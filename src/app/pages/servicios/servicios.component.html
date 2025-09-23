@@ -3,7 +3,7 @@
   <div class="bloque-encabezado">
     <p class="subtitulo">Nuestros servicios</p>
     <h1 class="titulo">Soluciones Digitales Andinas S.A.S: </h1>
-    <h2 class="titulo-secundario">Soluciones digitales para empresas colombianas</h2>
+    <h2 class="titulo-secundario">Innovación y tecnología a su servicio</h2>
     <p class="descripcion">
       Diseñamos y desarrollamos soluciones tecnológicas que se ajustan a las necesidades de las empresas colombianas. Explora nuestros servicios y encuentra la opción ideal para transformar tu negocio.
     </p>
@@ -11,7 +11,9 @@
 </section>
 
   <div class="volver">
-    <a routerLink="/" class="btn-volver"><span class="flecha-volver">❮</span> Volver</a>
+    <a routerLink="/home" class="btn-volver">
+    <img src="assets/icono/volver_flecha.svg" alt="Volver al inicio" />
+    </a>
   </div>
 
   <div class="carrusel-container">
@@ -22,7 +24,7 @@
         <div class="new-badge" *ngIf="servicio.nuevo">New</div>
 
         <div class="icono">
-          <img src="assets/img/corazon.svg" alt="icono institucional" />
+          <img src="assets/icono/corazon.svg" alt="icono institucional" />
         </div>
 
         <h3>{{ servicio.nombre }}</h3>

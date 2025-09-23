@@ -1,0 +1,201 @@
+export const DETALLE_SERVICIOS = [
+  {
+    id: 'web',
+    nombre: 'Desarrollo de Páginas Web Empresariales',
+    imagen: 'assets/img/web.jpg',
+    descripcion: 'Creamos sitios web empresariales que no solo se ven bien, sino que funcionan estratégicamente. Cada página está pensada para comunicar tu propuesta de valor, facilitar la navegación del usuario y convertir visitantes en clientes. Nos enfocamos en diseño responsive, velocidad de carga, y estructura SEO para que tu empresa tenga presencia sólida en línea.',
+    beneficios: [
+      'Refuerza la imagen profesional de tu marca',
+      'Mejora la visibilidad en buscadores como Google',
+      'Facilita el contacto y la conversión de clientes',
+      'Compatible con dispositivos móviles y escritorio'
+    ],
+    caracteristicas: [
+      'Diseño adaptable (responsive) para móviles, tablets y PC',
+      'Optimización SEO básica (estructura, etiquetas, velocidad)',
+      'Integración con redes sociales (Facebook, Instagram, LinkedIn)',
+      'Configuración de correo corporativo y soporte técnico'
+    ],
+    precio: '$3.500.000',
+    cta: 'Solicitar cotización personalizada'
+  },
+  {
+    id: 'app',
+    nombre: 'Aplicaciones Móviles (Android y iOS)',
+    imagen: 'assets/img/app.jpg',
+    descripcion: 'Desarrollamos aplicaciones móviles nativas que se adaptan a las necesidades de tu negocio. Desde apps para clientes hasta herramientas internas, cada proyecto incluye diseño UX/UI, funcionalidades personalizadas y un panel administrativo para gestionar contenido, usuarios o métricas.',
+    beneficios: [
+      'Acceso directo a tus servicios desde dispositivos móviles',
+      'Experiencia de usuario optimizada para fidelización',
+      'Control total desde panel administrativo',
+      'Publicación en Google Play y App Store'
+    ],
+    caracteristicas: [
+      'Diseño visual personalizado con enfoque UX/UI',
+      'Desarrollo nativo para Android e iOS',
+      'Panel de administración web vinculado a la app',
+      'Soporte técnico continuo y actualizaciones'
+    ],
+    precio: '$12.000.000',
+    cta: 'Agendar reunión técnica'
+  },
+  {
+    id: 'cloud',
+    nombre: 'Migración de Servidores a la Nube',
+    imagen: 'assets/img/cloud.jpg',
+    descripcion: 'Realizamos la migración segura de tus servidores físicos o locales a plataformas en la nube, como Google Cloud, AWS o Azure. Este proceso incluye respaldo automatizado, configuración personalizada y pruebas de rendimiento.',
+    beneficios: [
+      'Acceso remoto desde cualquier lugar',
+      'Reducción de gastos en infraestructura física',
+      'Escalabilidad según demanda',
+      'Mayor seguridad y respaldo automático'
+    ],
+    caracteristicas: [
+      'Análisis previo de infraestructura actual',
+      'Configuración de servidores virtuales',
+      'Automatización de backups y restauración',
+      'Soporte técnico post-migración'
+    ],
+    precio: '$2.200.000',
+    cta: 'Solicitar diagnóstico gratuito'
+  },
+  {
+    id: 'security',
+    nombre: 'Consultoría en Seguridad Informática',
+    imagen: 'assets/img/security.jpg',
+    descripcion: 'Protege tu empresa con un análisis profundo de tu infraestructura digital. Nuestra consultoría incluye auditoría de vulnerabilidades, recomendaciones específicas y un informe técnico detallado.',
+    beneficios: [
+      'Identificación de riesgos antes de que ocurran',
+      'Recomendaciones prácticas para fortalecer tu seguridad',
+      'Informe técnico para decisiones estratégicas',
+      'Tranquilidad frente a auditorías externas'
+    ],
+    caracteristicas: [
+      'Escaneo de puertos, accesos y configuraciones',
+      'Evaluación de contraseñas, roles y permisos',
+      'Recomendaciones de mejora por prioridad',
+      'Informe técnico con hallazgos y soluciones'
+    ],
+    precio: '$1.800.000',
+    cta: 'Solicitar auditoría de seguridad'
+  },
+  {
+    id: 'support',
+    nombre: 'Soporte y Mantenimiento Mensual',
+    imagen: 'assets/img/support.jpg',
+    descripcion: 'Ofrecemos soporte técnico continuo para mantener tus sistemas funcionando sin interrupciones. Incluye actualizaciones periódicas, monitoreo de rendimiento, atención prioritaria y resolución de incidencias.',
+    beneficios: [
+      'Prevención de fallos críticos',
+      'Mejora continua del rendimiento',
+      'Atención rápida ante incidentes',
+      'Ahorro de tiempo y recursos'
+    ],
+    caracteristicas: [
+      'Actualizaciones de software y seguridad',
+      'Monitoreo de servidores, apps y sitios web',
+      'Atención vía email y canal prioritario',
+      'Reporte mensual de estado técnico'
+    ],
+    precio: '$650.000',
+    cta: 'Contratar plan mensual'
+  },
+  {
+    id: 'seo',
+    nombre: 'Posicionamiento Web (SEO) y Marketing Digital',
+    imagen: 'assets/img/seo.jpg',
+    descripcion: 'Mejoramos tu visibilidad en buscadores como Google mediante estrategias de SEO y marketing digital. Analizamos tu contenido, optimizamos tu sitio web y te ayudamos a atraer tráfico de calidad.',
+    beneficios: [
+      'Aumento de visitas orgánicas',
+      'Mejora del posicionamiento en Google',
+      'Atracción de clientes potenciales',
+      'Reportes mensuales para medir resultados'
+    ],
+    caracteristicas: [
+      'Auditoría SEO inicial (estructura, velocidad, contenido)',
+      'Análisis y selección de palabras clave estratégicas',
+      'Optimización de contenido y metadatos',
+      'Reporte mensual con métricas y recomendaciones'
+    ],
+    precio: '$900.000',
+    cta: 'Solicitar análisis SEO gratuito'
+  },
+  {
+    id: 'payments',
+    nombre: 'Integración de Pasarelas de Pago y APIs',
+    imagen: 'assets/img/payments.jpg',
+    descripcion: 'Conectamos tu sistema con pasarelas de pago y APIs externas para que puedas recibir pagos, consultar datos o automatizar procesos. Ideal para tiendas online, apps de servicios o plataformas que requieren conectividad segura y eficiente.',
+    beneficios: [
+      'Pagos en línea seguros y rápidos',
+      'Automatización de procesos externos',
+      'Mayor eficiencia operativa',
+      'Documentación técnica clara'
+    ],
+    caracteristicas: [
+      'Integración con múltiples plataformas (PayU, Stripe, MercadoPago)',
+      'Conexión vía API REST o SOAP',
+      'Validación de datos y seguridad',
+      'Documentación técnica para tu equipo'
+    ],
+    precio: '$1.200.000',
+    cta: 'Solicitar integración personalizada'
+  },
+  {
+    id: 'uxui',
+    nombre: 'Diseño de Interfaces y Experiencia de Usuario (UX/UI)',
+    imagen: 'assets/img/uxui.jpg',
+    descripcion: 'Diseñamos interfaces intuitivas, atractivas y funcionales que mejoran la experiencia del usuario. Desde prototipos en Figma hasta pruebas de usabilidad, cada diseño está pensado para facilitar la interacción y reflejar tu identidad de marca.',
+    beneficios: [
+      'Interfaces claras y atractivas',
+      'Mayor retención de usuarios',
+      'Navegación fluida y lógica',
+      'Diseño adaptable a cualquier dispositivo'
+    ],
+    caracteristicas: [
+      'Prototipos interactivos en Figma',
+      'Pruebas de usabilidad con usuarios reales',
+      'Diseño adaptable (responsive)',
+      'Entrega de archivos editables y documentación'
+    ],
+    precio: '$1.000.000',
+    cta: 'Solicitar propuesta de diseño'
+  },
+  {
+    id: 'automation',
+    nombre: 'Automatización de Procesos Empresariales (RPA)',
+    imagen: 'assets/img/automation.jpg',
+    descripcion: 'Implementamos bots que automatizan tareas repetitivas como envío de correos, actualización de bases de datos o generación de reportes. Usamos herramientas como Python, Apps Script y Selenium para conectar tus sistemas y liberar tiempo operativo.',
+    beneficios: [
+      'Ahorro de tiempo y recursos',
+      'Reducción de errores humanos',
+      'Mayor eficiencia en procesos internos',
+      'Escalabilidad sin aumentar personal'
+    ],
+    caracteristicas: [
+      'Scripts personalizados según tu flujo de trabajo',
+      'Integración con sistemas existentes (Sheets, CRMs, ERPs)',
+      'Activación por eventos o cronograma',
+      'Panel de control para monitoreo'
+    ],
+    precio: '$2.500.000',
+    cta: 'Solicitar automatización de procesos'
+  },
+  {
+  id: 'bi',
+  nombre: 'Análisis de Datos y Business Intelligence',
+  imagen: 'assets/img/bi.jpg',
+  descripcion: 'Transformamos tus datos en decisiones inteligentes. Creamos dashboards interactivos, reportes automatizados y visualizaciones que te permiten entender el rendimiento de tu negocio en tiempo real. Ideal para gerentes, analistas y equipos de estrategia.',
+  beneficios: [
+    'Visión clara de indicadores clave',
+    'Toma de decisiones basada en datos',
+    'Automatización de reportes',
+    'Acceso compartido y seguro'
+  ],
+  caracteristicas: [
+    'Dashboards en Google Sheets, Data Studio o Power BI',
+    'Filtros dinámicos y segmentación',
+    'Reportes automatizados por correo',
+    'Integración con bases de datos externas'
+  ],
+  precio: '$2.800.000',
+  cta: 'Solicitar demo de dashboard'
+}]

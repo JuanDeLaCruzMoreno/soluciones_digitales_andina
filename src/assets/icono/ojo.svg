@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="240" height="160" aria-label="Ojo">
+  <!-- Contorno del ojo (almendra) -->
+  <path d="M6 40 C28 10, 92 10, 114 40 C92 70, 28 70, 6 40 Z" fill="#FFFFFF"/>
+  <path d="M6 40 C28 15, 92 15, 114 40 C92 65, 28 65, 6 40 Z" fill="none" stroke="#2C2C2C" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Iris -->
+  <circle cx="60" cy="40" r="18" fill="#4AA3FF" />
+  <!-- Pupila -->
+  <circle cx="60" cy="40" r="9" fill="#0B0B0B"/>
+
+  <!-- Brillo principal -->
+  <ellipse cx="66" cy="32" rx="4.5" ry="6" fill="white" opacity="0.95" transform="rotate(-30 66 32)"/>
+  <!-- Brillo secundario -->
+  <circle cx="52" cy="44" r="2" fill="white" opacity="0.9"/>
+
+  <!-- Línea inferior suave (para profundidad) -->
+  <path d="M14 50 C34 58, 86 58, 106 50" fill="none" stroke="#000000" stroke-opacity="0.05" stroke-width="6" stroke-linecap="round"/>
+</svg>

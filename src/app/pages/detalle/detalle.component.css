@@ -1,0 +1,182 @@
+:host {
+  display: block;
+  background-color: #ffffff;
+}
+
+body {
+  background-color: #fff;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.encabezado-detalle {
+  text-align: left;
+  padding: 30px 0 10px;
+}
+
+.subtitulo {
+  color: #0077cc;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.btn-volver {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-volver img {
+  width: 36px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-volver img:hover {
+  transform: scale(1.1);
+}
+
+.titulo {
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.imagen-central {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.imagen-central img {
+  width: 50%;
+  max-width: 600px;
+  border-radius: 12px;
+}
+
+
+.iconos-superiores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.iconos-superiores img {
+  width: 48px;
+  cursor: pointer;
+}
+
+.vista {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.titulo-ranking {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.titulo-servicio {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #0077cc;
+}
+
+.ranking {
+  font-size: 1rem;
+  background-color: #222;
+  color: gold;
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+.subtitulo-descripcion {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0077cc;
+  margin-bottom: 6px;
+}
+
+.descripcion {
+  color: #444;
+  font-size: 1rem;
+  text-align: justify;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.detalle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.bloque h4 {
+  font-size: 1.1rem;
+  color: #0077cc;
+  margin-bottom: 10px;
+}
+
+.bloque ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.bloque li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.interacciones-finales {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.precio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.valor {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #0077cc;
+}
+
+.desde {
+  font-size: 1rem;
+  color: #0077cc;
+  margin-top: 2px;
+}
+
+.iconos-finales {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.iconos-finales img {
+  width: 48px;
+  cursor: pointer;
+}

@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo-contenedor {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.logo-icono {
+  width: 100px;
+  height: auto;
+}
+
+.logo-texto {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0077cc;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu li a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+}
