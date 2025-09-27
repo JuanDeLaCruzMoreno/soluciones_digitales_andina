@@ -7,5 +7,8 @@
     <li><a routerLink="/servicios">Servicios</a></li>
     <li><a routerLink="/contacto">Contacto</a></li>
     <li><a routerLink="/nosotros">Nosotros</a></li>
+    <li *ngIf="auth.isAuthenticated()">
+      <button (click)="logout()" class="logout-btn">Cerrar sesión</button>
+    </li>
   </ul>
 </nav>

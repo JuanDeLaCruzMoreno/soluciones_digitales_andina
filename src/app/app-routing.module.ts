@@ -5,6 +5,7 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CrudComponent } from './pages/crud/crud.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'servicios', component: ServiciosComponent },
   { path: 'detalle/:id', component: DetalleComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: CrudComponent }
+  { path: 'admin', component: CrudComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
