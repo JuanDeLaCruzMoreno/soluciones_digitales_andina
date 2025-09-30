@@ -1,1 +1,103 @@
-<p>crud works!</p>
+<!-- Tarjetas resumen -->
+<section class="cards-row">
+  <div class="card" *ngFor="let c of [0,1,2]; let i = index">
+    <div class="card-icon" 
+         [ngClass]="{ 'icon-1': i===0, 'icon-2': i===1, 'icon-3': i===2 }">
+      <!-- SVG decorativo simple -->
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.6)" />
+        <path d="M7 12h10" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" />
+        <path *ngIf="i===1" d="M12 7v10" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <div class="card-body">
+      <div class="card-top">
+        <h3 class="card-title">
+          {{ i===0 ? 'Servicios' : (i===1 ? 'Llamadas' : 'Controles') }}
+        </h3>
+        <span class="trend" [ngClass]="{ 'up': i!==2, 'down': i===2 }">
+          {{ i===2 ? '↓ 25%' : (i===1 ? '↑ 40%' : '↑ 4.8%') }}
+        </span>
+      </div>
+      <div class="card-value">
+        {{ i===0 ? 120 : (i===1 ? 110 : 10) }}
+      </div>
+      <div class="card-sub">desde la semana pasada</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CRUD -->
+<div class="crud-container">
+  <header class="crud-header">
+    <h2>Administrar servicios</h2>
+    <div class="actions">
+      <button class="btn primary" (click)="addItem()">+ Nuevo</button>
+    </div>
+  </header>
+
+  <table class="crud-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th>Disponible</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{ item.id }}</td>
+        <td>
+          <ng-container *ngIf="editingId !== item.id; else editNombre">{{ item.nombre }}</ng-container>
+          <ng-template #editNombre>
+            <input type="text" [(ngModel)]="editModel.nombre" />
+          </ng-template>
+        </td>
+        <td>
+          <ng-container *ngIf="editingId !== item.id; else editCategoria">{{ item.categoria }}</ng-container>
+          <ng-template #editCategoria>
+            <input type="text" [(ngModel)]="editModel.categoria" />
+          </ng-template>
+        </td>
+        <td>
+          <ng-container *ngIf="editingId !== item.id; else editPrecio">
+            {{ item.precio | currency:'COP':'symbol':'1.0-0' }}
+          </ng-container>
+          <ng-template #editPrecio>
+            <input type="number" [(ngModel)]="editModel.precio" />
+          </ng-template>
+        </td>
+        <td>
+          <ng-container *ngIf="editingId !== item.id; else editDisponible">
+            {{ item.disponible ? 'Sí' : 'No' }}
+          </ng-container>
+          <ng-template #editDisponible>
+            <select [(ngModel)]="editModel.disponible">
+              <option [ngValue]="true">Sí</option>
+              <option [ngValue]="false">No</option>
+            </select>
+          </ng-template>
+        </td>
+        <td class="actions-col">
+          <ng-container *ngIf="editingId !== item.id; else editButtons">
+            <button class="btn edit" (click)="startEdit(item)">Editar</button>
+            <button class="btn danger" (click)="deleteItem(item.id)">Eliminar</button>
+          </ng-container>
+          <ng-template #editButtons>
+            <button class="btn primary" (click)="saveEdit()">Guardar</button>
+            <button class="btn" (click)="cancelEdit()">Cancelar</button>
+          </ng-template>
+        </td>
+      </tr>
+      <tr *ngIf="items.length === 0">
+        <td colspan="6" class="empty">No hay elementos.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
