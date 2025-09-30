@@ -2,6 +2,7 @@ export const SERVICIOS = [
   {
     id: "web",
     nombre: 'Desarrollo de Páginas Web Empresariales',
+    imagen: 'assets/img/web.jpg',
     precio: 3500000,
     descripcion: 'Diseño profesional y funcional para empresas.',
     nuevo: false,
@@ -15,6 +16,7 @@ export const SERVICIOS = [
   {
     id: "app",
     nombre: '📱 Aplicaciones Móviles (Android y iOS)',
+    imagen: 'assets/img/app.jpg',
     precio: 12000000,
     descripcion: 'Aplicaciones nativas para potenciar tu negocio.',
     nuevo: true,
@@ -28,6 +30,7 @@ export const SERVICIOS = [
   {
     id: "cloud",
     nombre: '☁️ Migración de Servidores a la Nube',
+    imagen: 'assets/img/cloud.jpg',
     precio: 2200000,
     descripcion: 'Transición segura y eficiente a la nube.',
     nuevo: false,
@@ -40,6 +43,7 @@ export const SERVICIOS = [
   {
     id: "security",
     nombre: '🔐 Consultoría en Seguridad Informática',
+    imagen: 'assets/img/security.jpg',
     precio: 1800000,
     descripcion: 'Protege tu infraestructura digital con asesoría especializada.',
     nuevo: true,
@@ -53,6 +57,7 @@ export const SERVICIOS = [
   {
     id: "support",
     nombre: '🔧 Soporte y Mantenimiento Mensual',
+    imagen: 'assets/img/support.jpg',
     precio: 650000,
     descripcion: 'Mantén tus sistemas funcionando sin interrupciones.',
     nuevo: false,
@@ -66,6 +71,7 @@ export const SERVICIOS = [
   {
     id: "seo",
     nombre: '📈 Posicionamiento Web (SEO) y Marketing Digital',
+    imagen: 'assets/img/seo.jpg',
     precio: 900000,
     descripcion: 'Aumenta tu visibilidad y atrae más clientes.',
     nuevo: false,
@@ -79,6 +85,7 @@ export const SERVICIOS = [
   {
     id: "payments",
     nombre: '💳 Integración de Pasarelas de Pago y APIs',
+    imagen: 'assets/img/payments.jpg',
     precio: 1200000,
     descripcion: 'Conecta tu sistema con soluciones externas de forma segura.',
     nuevo: true,
@@ -92,6 +99,7 @@ export const SERVICIOS = [
   {
     id: "uiux",
     nombre: '🎨 Diseño de Interfaces y Experiencia de Usuario (UX/UI)',
+    imagen: 'assets/img/uxui.jpg',
     precio: 1000000,
     descripcion: 'Diseños intuitivos y centrados en el usuario.',
     nuevo: true,
@@ -105,6 +113,7 @@ export const SERVICIOS = [
   {
     id: "automation",
     nombre: '🤖 Automatización de Procesos Empresariales (RPA)',
+    imagen: 'assets/img/automation.jpg',
     precio: 2500000,
     descripcion: 'Reduce tareas repetitivas con bots inteligentes.',
     nuevo: false,
@@ -118,6 +127,7 @@ export const SERVICIOS = [
   {
     id: "bi",
     nombre: '📊 Análisis de Datos y Business Intelligence',
+    imagen: 'assets/img/bi.jpg',
     precio: 2800000,
     descripcion: 'Convierte tus datos en decisiones inteligentes.',
     nuevo: true,

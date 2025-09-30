@@ -140,7 +140,7 @@ export const DETALLE_SERVICIOS = [
     cta: 'Solicitar integración personalizada'
   },
   {
-    id: 'uxui',
+    id: 'uiux',
     nombre: 'Diseño de Interfaces y Experiencia de Usuario (UX/UI)',
     imagen: 'assets/img/uxui.jpg',
     descripcion: 'Diseñamos interfaces intuitivas, atractivas y funcionales que mejoran la experiencia del usuario. Desde prototipos en Figma hasta pruebas de usabilidad, cada diseño está pensado para facilitar la interacción y reflejar tu identidad de marca.',
