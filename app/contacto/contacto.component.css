@@ -1,0 +1,196 @@
+/* --- Estilos del Header (Barra Superior) --- */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  background-color: white; 
+  border-bottom: 1px solid #eee;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  color: #2575fc; 
+  border-bottom: 2px solid #2575fc;
+}
+
+/* --- Contenedor de Contacto (Fondo Gradiente) --- */
+.contact-page-container {
+  min-height: calc(100vh - 61px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  
+  /* Gradiente del fondo general (Basado en la imagen)  */
+  background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+}
+
+/* --- Tarjeta de Contacto Principal --- */
+.contact-card {
+  display: flex;
+  width: 90%;
+  max-width: 1000px; 
+  border-radius: 15px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Columna Izquierda (Info Side - Gradiente de la imagen)  --- */
+.info-side {
+  width: 40%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  /* Gradiente violeta a azul para la columna de información  */
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); 
+}
+
+.sda-badge {
+  font-size: 2rem;
+  font-weight: bold;
+  background: white;
+  color: #6a11cb;
+  border-radius: 50%;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+.contact-details h4 {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* --- Columna Derecha (Form Side) --- */
+.form-side {
+  width: 60%;
+  padding: 40px;
+}
+
+.form-side h3 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.subtitle {
+  color: #6c757d;
+  margin-bottom: 30px;
+}
+
+/* Estilos de Formulario y Controles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545; 
+}
+
+.validation-error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+/* Botones */
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  /* Gradiente para el botón */
+  background-image: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  transition: opacity 0.3s;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Estilo para los mensajes de respuesta */
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+
+/* Media Query para Responsividad (móviles) [7] */
+@media (max-width: 768px) {
+.contact-card {
+    /* En pantallas pequeñas, apila las columnas verticalmente */
+    flex-direction: column;
+    width: 95%;
+  }
+
+.info-side,.form-side {
+    width: 100%;
+    padding: 30px;
+  }
+}

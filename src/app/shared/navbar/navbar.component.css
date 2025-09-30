@@ -1,3 +1,19 @@
+
+.logout-btn {
+  background: linear-gradient(90deg, #5b6ef5 0%, #7b5bf5 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: background 0.2s;
+}
+.logout-btn:hover {
+  background: linear-gradient(90deg, #7b5bf5 0%, #5b6ef5 100%);
+}
 .navbar {
   display: flex;
   justify-content: space-between;
