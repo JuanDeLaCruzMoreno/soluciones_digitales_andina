@@ -28,6 +28,9 @@
         </div>
 
         <h3>{{ servicio.nombre }}</h3>
+        <div class="imagen-wrapper">
+        <img [src]="servicio.imagen" alt="Imagen del servicio" class="imagen-servicio" />
+        </div>
         <p class="precio">COP ${{ servicio.precio | number }}</p>
         <p class="desde">Desde</p>
         <p class="descripcion">💬 {{ servicio.descripcion }}</p>
