@@ -1,0 +1,100 @@
+<header class="main-header">
+  <div class="logo-container">
+    <span class="company-name">Soluciones Digitales Andinas S.A.S</span>
+  </div>
+  <nav class="nav-links">
+    <a routerLink="/servicios">Servicios</a>
+    <a routerLink="/contacto" class="active">Contacto</a>
+    <a routerLink="/nosotros">Nosotros</a>
+  </nav>
+</header>
+
+<div class="contact-page-container">
+  <div class="contact-card shadow-lg">
+    
+    <!-- Lado de la información -->
+    <div class="info-side">
+      <div class="sda-badge">SDA</div>
+      <h2>Soluciones Digitales Andinas S.A.S</h2>
+      <p>Nuestro equipo está listo para ayudarle a alcanzar sus metas digitales.</p>
+      
+      <div class="contact-details mt-4">
+        <h4>Información de la Oficina:</h4>
+        <p>Email: glossaga@gmail.com</p>
+        <p>Teléfono: +57 3016953408</p>
+        <p>Dirección: Calle Ficticia # 12-34, Cocorna Antioquia, Colombia</p>
+      </div>
+    </div>
+    
+    <!-- Lado del formulario -->
+    <div class="form-side">
+      <h3>Contáctanos</h3>
+      <p class="subtitle">Envíenos un mensaje y responderemos lo antes posible.</p>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+        <!-- 🚫 Eliminado el mensaje de respuesta -->
+
+        <!-- Nombre -->
+        <div class="form-group">
+          <label for="name">Nombre Completo</label>
+          <input 
+            id="name" 
+            type="text" 
+            formControlName="nombre"
+            placeholder="Su nombre"
+            class="form-control"
+            [class.is-invalid]="f['nombre'].invalid && (f['nombre'].dirty || f['nombre'].touched)"
+          >
+          <div *ngIf="f['nombre'].touched && f['nombre'].errors" class="validation-error">
+            <div *ngIf="f['nombre'].errors['required']">El nombre es obligatorio.</div>
+            <div *ngIf="f['nombre'].errors['minlength']">Debe tener al menos 3 caracteres.</div>
+          </div>
+        </div>
+
+        <!-- Correo -->
+        <div class="form-group">
+          <label for="email">Correo Electrónico</label>
+          <input 
+            id="email" 
+            type="email" 
+            formControlName="correoElectronico"
+            placeholder="su.correo@ejemplo.com"
+            class="form-control"
+            [class.is-invalid]="f['correoElectronico'].invalid && (f['correoElectronico'].dirty || f['correoElectronico'].touched)"
+          >
+          <div *ngIf="f['correoElectronico'].touched && f['correoElectronico'].errors" class="validation-error">
+            <div *ngIf="f['correoElectronico'].errors['required']">El correo es obligatorio.</div>
+            <div *ngIf="f['correoElectronico'].errors['email']">Formato de correo inválido.</div>
+          </div>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea
+            id="message" 
+            formControlName="mensaje"
+            placeholder="Escriba su consulta aquí..."
+            class="form-control"
+            rows="4"
+            [class.is-invalid]="f['mensaje'].invalid && (f['mensaje'].dirty || f['mensaje'].touched)"
+          ></textarea>
+          <div *ngIf="f['mensaje'].touched && f['mensaje'].errors" class="validation-error">
+            <div *ngIf="f['mensaje'].errors['required']">El mensaje es obligatorio.</div>
+            <div *ngIf="f['mensaje'].errors['minlength']">El mensaje debe tener al menos 10 caracteres.</div>
+          </div>
+        </div>
+        
+        <!-- Botón -->
+        <button 
+          type="submit" 
+          class="btn btn-primary"
+          [disabled]="contactForm.invalid"
+        >
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
