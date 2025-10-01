@@ -5,6 +5,7 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CrudComponent } from './pages/crud/crud.component';
+import { NosotrosComponent } from '../pages/nosotros/nosotros.component';
 import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'servicios', component: ServiciosComponent },
   { path: 'detalle/:id', component: DetalleComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'nosotros', component: NosotrosComponent },
   { path: 'admin', component: CrudComponent, canActivate: [AuthGuard] }
 ];
 
