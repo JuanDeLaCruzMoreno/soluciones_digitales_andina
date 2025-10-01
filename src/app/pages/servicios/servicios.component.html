@@ -1,51 +1,89 @@
-<div class="contenedor">
-  <section class="encabezado">
-  <div class="bloque-encabezado">
-    <p class="subtitulo">Nuestros servicios</p>
-    <h1 class="titulo">Soluciones Digitales Andinas S.A.S: </h1>
-    <h2 class="titulo-secundario">Innovación y tecnología a su servicio</h2>
-    <p class="descripcion">
-      Diseñamos y desarrollamos soluciones tecnológicas que se ajustan a las necesidades de las empresas colombianas. Explora nuestros servicios y encuentra la opción ideal para transformar tu negocio.
-    </p>
+<section class="servicios-page" [class.is-ready]="isReady">
+  <div class="servicios-page__shapes" aria-hidden="true">
+    <span class="servicios-page__shape servicios-page__shape--primary"></span>
+    <span class="servicios-page__shape servicios-page__shape--secondary"></span>
+    <span class="servicios-page__shape servicios-page__shape--tertiary"></span>
+  </div>
+
+  <div class="servicios-layout">
+    <header class="servicios-header">
+      <span class="servicios-eyebrow">Nuestros servicios</span>
+      <h1 class="servicios-title">Soluciones Digitales Andinas S.A.S</h1>
+      <h2 class="servicios-subtitle">Innovación y tecnología a su servicio</h2>
+      <p class="servicios-description">
+        Diseñamos y desarrollamos soluciones tecnológicas que se ajustan a las necesidades de las empresas colombianas. Explora nuestros servicios y encuentra la opción ideal para transformar tu negocio.
+      </p>
+      <a routerLink="/home" class="servicios-back" aria-label="Volver al inicio">
+        <span class="servicios-back__icon" aria-hidden="true">&#8592;</span>
+        Volver al inicio
+      </a>
+    </header>
+
+    <section class="servicios-carousel" aria-label="Listado de servicios disponibles">
+      <button
+        class="servicios-carousel__control servicios-carousel__control--left"
+        type="button"
+        *ngIf="mostrarFlechaIzquierda"
+        (click)="scrollIzquierda()"
+        aria-label="Ver servicios anteriores"
+      >
+        <span aria-hidden="true">&#10094;</span>
+      </button>
+
+      <div
+        class="servicios-carousel__track"
+        #scrollContainer
+        (scroll)="verificarFlechas()"
+        role="list"
+      >
+        <article class="servicios-card" *ngFor="let servicio of servicios" role="listitem">
+          <span class="servicios-card__glow" aria-hidden="true"></span>
+          <div class="servicios-card__badge" *ngIf="servicio.nuevo">Nuevo</div>
+
+          <div class="servicios-card__icon" aria-hidden="true">
+            <img src="assets/icono/corazon.svg" alt="" />
+          </div>
+
+          <div class="servicios-card__image">
+            <img [src]="servicio.imagen" alt="Imagen del servicio" loading="lazy" />
+          </div>
+
+          <div class="servicios-card__content">
+            <h3 class="servicios-card__title">{{ servicio.nombre }}</h3>
+            <p class="servicios-card__price">
+              COP
+              <span class="servicios-card__price-symbol">$</span>
+              <span class="servicios-card__price-value">{{ servicio.precio | number }}</span>
+            </p>
+            <p class="servicios-card__since">Desde</p>
+            <p class="servicios-card__description">&#128172; {{ servicio.descripcion }}</p>
+
+            <a [routerLink]="['/detalle', servicio.id]" class="servicios-card__link">
+              Conoce más
+              <span aria-hidden="true" class="servicios-card__link-icon">&#10132;</span>
+            </a>
+
+            <ul class="servicios-card__list">
+              <li *ngFor="let c of servicio.caracteristicas">
+                <span class="servicios-card__list-icon" aria-hidden="true">
+                  <img [src]="getCheckIcon(c)" alt="" />
+                </span>
+                <span class="servicios-card__list-text">{{ c }}</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <button
+        class="servicios-carousel__control servicios-carousel__control--right"
+        type="button"
+        *ngIf="mostrarFlechaDerecha"
+        (click)="scrollDerecha()"
+        aria-label="Ver más servicios"
+      >
+        <span aria-hidden="true">&#10095;</span>
+      </button>
+    </section>
   </div>
 </section>
-
-  <div class="volver">
-    <a routerLink="/home" class="btn-volver">
-    <img src="assets/icono/volver_flecha.svg" alt="Volver al inicio" />
-    </a>
-  </div>
-
-  <div class="carrusel-container">
-    <button class="flecha izquierda" *ngIf="mostrarFlechaIzquierda" (click)="scrollIzquierda()">❮</button>
-
-    <div class="carrusel" #scrollContainer (scroll)="verificarFlechas()">
-      <div class="card" *ngFor="let servicio of servicios">
-        <div class="new-badge" *ngIf="servicio.nuevo">New</div>
-
-        <div class="icono">
-          <img src="assets/icono/corazon.svg" alt="icono institucional" />
-        </div>
-
-        <h3>{{ servicio.nombre }}</h3>
-        <div class="imagen-wrapper">
-        <img [src]="servicio.imagen" alt="Imagen del servicio" class="imagen-servicio" />
-        </div>
-        <p class="precio">COP ${{ servicio.precio | number }}</p>
-        <p class="desde">Desde</p>
-        <p class="descripcion">💬 {{ servicio.descripcion }}</p>
-
-        <a [routerLink]="['/detalle', servicio.id]" class="btn">Conoce más</a>
-
-        <ul class="caracteristicas">
-          <li *ngFor="let c of servicio.caracteristicas">
-            <img [src]="getCheckIcon(c)" alt="✔️" class="check-icon" />
-            <span class="check-text">{{ c }}</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <button class="flecha derecha" *ngIf="mostrarFlechaDerecha" (click)="scrollDerecha()">❯</button>
-  </div>
-</div>

@@ -1,4 +1,4 @@
-/* Estilos Generales */
+
 :host {
     display: block;
     background-color: #ffffff;
@@ -11,9 +11,9 @@
     overflow: hidden;
 }
 
-/* ---------------------------------- */
-/* SECCIÓN PRINCIPAL (HERO) */
-/* ---------------------------------- */
+
+
+
 .hero-section {
     display: flex;
     min-height: auto;
@@ -22,11 +22,11 @@
     align-items: flex-start;
 }
 
-/* -------------------- */
-/* Título Principal y Columna Izquierda (60% de Ancho) */
-/* -------------------- */
+
+
+
 .title_ppal {
-    font-size: 3.1rem; /* El tamaño grande debe ser de 5.5rem */
+    font-size: 3.1rem; 
     font-family: 'arial black', sans-serif;
     font-weight: 800;
     color: #000;
@@ -35,7 +35,7 @@
 }
 
 .left-content {
-    flex: 6; /* 60% del ancho */
+    flex: 6; 
     height: 850px;
     position: relative;
     display: flex;
@@ -46,12 +46,12 @@
     font-style: italic;
 }
 
-/* Contenedor de Posicionamiento (Triángulo y Título) */
+
 .company-info { position: absolute; z-index: 5; width: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 .title-container { position: relative; padding-left: 205px; width: auto; }
 .company-info h1 { font-weight: 800; color: #000; line-height: 1.2; margin: 0; padding-left: 0; text-align: left; width: auto; }
 
-/* Posicionamiento de Imágenes y Triángulo (Se mantienen) */
+
 .image-wrapper { position: absolute; z-index: 3; }
 .image-wrapper.top-center { top: 50px; left: 300px; }
 .image-wrapper.bottom-center { bottom: 50px; left: 200px; }
@@ -62,14 +62,14 @@
 .lock-icon { width: 100%; height: 100%; object-fit: cover; }
 
 
-/* -------------------- */
-/* Columna Derecha (40% de Ancho) */
-/* -------------------- */
+
+
+
 .right-content {
-    flex: 4; /* 40% del ancho */
+    flex: 4; 
     background-color: rgb(178,227,255);
     position: relative;
-    height: 700px; /* Altura fija para el recorte */
+    height: 700px; 
 
     padding: 50px 30px 10px;
     display: flex;
@@ -78,27 +78,27 @@
     border-bottom-left-radius: 80px;
 }
 
-/* Área de Contenido */
+
 .content-area {
     position: relative; z-index: 5;
     padding-right: 10px;
 }
 
-/* Tipografía y Resalte */
+
 .greeting { color: #0077cc; font-size: 1.9rem; font-weight: bold; margin-bottom: 5px;font-family: 'arial black'; }
 .title { color: #000; font-size: 3.0rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
 .resaltado-empresa { font-family: 'arial black'; color: #000; font-weight: 1000; }
 
 .description {
-    /* 🎉 CORRECCIÓN CLAVE: Permitir que el ancho sea automático (100% del 40% disponible) */
+    
     width: auto;
     color: #333; font-family: arial, sans-serif; font-size: 0.8rem; line-height: 1.5; margin-bottom: 20px; font-weight: 550;
 }
 
-/* Imagen del Robot (Posición al frente de la lista) */
+
 .image-overlay-wrapper {
     position: absolute;
-    /* Movemos el robot a una posición más pequeña para que quepa en el 40% */
+    
     left: 330px;
     top: 60%;
     transform: translateY(-50%);
@@ -111,54 +111,54 @@
 .robot-arm-image { width:80%; height: 80%; object-fit: cover; }
 
 
-/* Estilos de Botones */
+
 .button-group { display: flex; align-items: center; gap: 10px; margin-top: 30px; }
 .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1rem; transition: background-color 0.3s; text-align: center; white-space: nowrap; }
 .btn.primary { background-color: #0077cc; color: white; border: none; }
 .btn.secondary { background-color: #92e4ff; color: #0077cc; border: 1px solid #0077cc; }
 
 
-/* Lista de Servicios (Acortada para el robot) */
+
 .service-list {
     max-width: 300px;
     margin-right: 150px;
     width: 100%;
-    /* 🎉 CAMBIO 1: Usamos 'disc' para viñetas de punto llenas. */
+    
     list-style: disc;
 
-    list-style-position: inside; /* Opcional: Para alinear el texto y el punto */
+    list-style-position: inside; 
     font-family: 'Arial';
     font-weight: 550;
-    padding-left: 5px; /* Asegura espacio para que se vea la viñeta */
+    padding-left: 5px; 
     color: black;
     font-size: 0.8rem;
     margin-bottom: 30px;
 }
 .service-list li {
     position: relative;
-    /* CAMBIO 2: Reducimos o eliminamos el padding si ya tenemos viñetas nativas */
+    
     padding-left: 0;
     line-height: 1.5;
     margin-bottom: 5px;
 }
 
 .service-list li::before {
-    /* CAMBIO 3: Eliminamos esta regla para que no interfiera */
+    
     content: none;
 }
 
 
-/* ---------------------------------- */
-/* FORMAS DE FONDO (SHAPES) - RECORTE SUTIL */
-/* ---------------------------------- */
+
+
+
 .background-shape { position: absolute; background-color: rgb(178,227,255); z-index: 1; }
 
-/* 1. Rectángulo Superior Izquierdo con Curva */
+
 .large-circle-left { width: 200px; height: 250px; top: 0; left: 0; border-radius: 0; border-bottom-right-radius: 80px; transform: translate(-80px, -50px); }
 
-/* 2. Círculo Inferior Izquierdo (Recorte sutil) */
+
 .small-circle-left { width: 250px; height: 250px; bottom: 0; left: 0; border-radius: 50%; transform: translate(-100px, 100px); }
-/* Seccion Nosotros */
+
 .nosotros-section {
     background-color: #f0f3ff;
     padding: 80px 0;

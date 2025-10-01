@@ -1,25 +1,82 @@
-<div class="login-bg">
-	<div class="login-container">
-		<div class="login-left">
-			<div class="login-logo">
-				<div class="logo-circle">SDA</div>
-			</div>
-			<h2>Soluciones Digitales<br>Andinas S.A.S</h2>
-			<p class="login-desc">Control total de servicios y clientes en un solo lugar.</p>
-		</div>
-		<div class="login-right">
-			<h1>Iniciar Sesión</h1>
-			<p class="login-sub">Tu oficina digital, siempre a un clic</p>
-			<form #loginForm="ngForm" (ngSubmit)="onLogin()" autocomplete="off">
-				<label for="email"><b>Correo electrónico</b></label>
-				<input type="email" id="email" name="email" [(ngModel)]="email" required placeholder="usuario@empresa.com" />
-				<label for="password"><b>Contraseña</b></label>
-				<input type="password" id="password" name="password" [(ngModel)]="password" required placeholder="********" />
-				<button type="submit" [disabled]="!loginForm.form.valid">Entrar</button>
-			</form>
-			<div class="login-register">
-				¿No tienes cuenta? <a routerLink="/registro">Regístrate aquí</a>
-			</div>
-		</div>
-	</div>
-</div>
+<section class="login-page" [class.is-ready]="isReady">
+  <div class="login-page__shapes" aria-hidden="true">
+    <span class="login-page__shape login-page__shape--primary"></span>
+    <span class="login-page__shape login-page__shape--secondary"></span>
+    <span class="login-page__shape login-page__shape--tertiary"></span>
+  </div>
+
+  <div class="login-wrapper">
+    <div class="login-highlight">
+      <div class="login-highlight__halo" aria-hidden="true"></div>
+      <div class="login-highlight__badge">SDA</div>
+      <h2 class="login-highlight__title">Soluciones Digitales<br />Andinas S.A.S</h2>
+      <p class="login-highlight__subtitle">Control total de servicios y clientes en un solo lugar.</p>
+      <ul class="login-highlight__features">
+        <li>Panel administrativo seguro</li>
+        <li>Seguimiento en tiempo real</li>
+        <li>Soporte especializado</li>
+      </ul>
+    </div>
+
+    <div class="login-card">
+      <header class="login-card__header">
+        <h1 class="login-card__title">Iniciar sesión</h1>
+        <p class="login-card__subtitle">Tu oficina digital, siempre a un clic</p>
+      </header>
+
+      <form
+        #loginForm="ngForm"
+        class="login-form"
+        (ngSubmit)="onLogin()"
+        autocomplete="off"
+        aria-describedby="login-help"
+      >
+        <div class="login-form__field">
+          <label for="email" class="login-form__label">Correo electrónico</label>
+          <div class="login-form__input-wrapper">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              [(ngModel)]="email"
+              required
+              autocomplete="email"
+              placeholder="usuario@empresa.com"
+              class="login-form__input"
+            />
+          </div>
+        </div>
+
+        <div class="login-form__field">
+          <label for="password" class="login-form__label">Contraseña</label>
+          <div class="login-form__input-wrapper">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              [(ngModel)]="password"
+              required
+              autocomplete="current-password"
+              placeholder="••••••••"
+              class="login-form__input"
+            />
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="login-form__submit"
+          [disabled]="!loginForm.form.valid"
+        >
+          Entrar
+          <span class="login-form__submit-glow" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <p id="login-help" class="login-info">
+        ¿No tienes cuenta?
+        <a routerLink="/registro" class="login-link">Regístrate aquí</a>
+      </p>
+    </div>
+  </div>
+</section>

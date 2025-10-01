@@ -1,9 +1,9 @@
-<!-- Tarjetas resumen -->
+
 <section class="cards-row">
   <div class="card" *ngFor="let c of [0,1,2]; let i = index">
     <div class="card-icon" 
          [ngClass]="{ 'icon-1': i===0, 'icon-2': i===1, 'icon-3': i===2 }">
-      <!-- SVG decorativo simple -->
+      
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
            xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.6)" />
@@ -30,7 +30,7 @@
 </section>
 
 
-<!-- CRUD -->
+
 <div class="crud-container">
   <header class="crud-header">
     <h2>Administrar servicios</h2>

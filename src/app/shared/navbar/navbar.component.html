@@ -1,15 +1,48 @@
-<nav class="navbar">
-  <div class="logo-contenedor">
-    <img src="assets/icono/logo_empresa.svg" alt="Logo empresa" class="logo-icono" />
-    <span class="logo-texto">Soluciones Digitales Andinas S.A.S</span>
+<header class="navbar" [class.is-open]="menuOpen">
+  <div class="navbar__blur" aria-hidden="true"></div>
+
+  <div class="navbar__inner">
+    <a class="navbar__brand" routerLink="/home" (click)="closeMenu()">
+      <span class="navbar__logo">
+        <img src="assets/icono/logo_empresa.svg" alt="Soluciones Digitales Andinas" />
+      </span>
+      <span class="navbar__brand-text">
+        <span class="navbar__brand-sub">Soluciones Digitales</span>
+        <span class="navbar__brand-main">Andinas S.A.S</span>
+      </span>
+    </a>
+
+    <button
+      type="button"
+      class="navbar__toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="navbar-menu"
+      [attr.aria-label]="menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'"
+    >
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+    </button>
+
+    <nav class="navbar__menu" id="navbar-menu" aria-label="Navegación principal">
+      <a
+        routerLink="/home"
+        routerLinkActive="is-active"
+        (click)="closeMenu()"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >Inicio</a>
+      <a routerLink="/servicios" routerLinkActive="is-active" (click)="closeMenu()">Servicios</a>
+      <a routerLink="/contacto" routerLinkActive="is-active" (click)="closeMenu()">Contacto</a>
+      <a routerLink="/nosotros" routerLinkActive="is-active" (click)="closeMenu()">Nosotros</a>
+      <button
+        *ngIf="auth.isAuthenticated()"
+        type="button"
+        class="navbar__logout"
+        (click)="logout()"
+      >
+        <span>Cerrar sesión</span>
+      </button>
+    </nav>
   </div>
-  <ul class="menu">
-    <li><a routerLink="/home">inicio</a></li>
-    <li><a routerLink="/servicios">Servicios</a></li>
-    <li><a routerLink="/contacto">Contacto</a></li>
-    <li><a routerLink="/nosotros">Nosotros</a></li>
-    <li *ngIf="auth.isAuthenticated()">
-      <button (click)="logout()" class="logout-btn">Cerrar sesión</button>
-    </li>
-  </ul>
-</nav>
+</header>

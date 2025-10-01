@@ -1,27 +1,49 @@
-# SolucionesDigitales
+# Soluciones Digitales Andinas S.A.S
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+Aplicación web construida con Angular 15 para presentar la oferta de Soluciones Digitales Andinas S.A.S: página corporativa, portafolio de servicios, sección institucional, formulario de contacto y módulo de administración.
 
-## Development server
+## Características principales
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Landing de inicio con hero interactivo y resumen de servicios.
+- Portafolio dinámico en la ruta /servicios con carrusel responsivo y enlaces a detalle.
+- Página Nosotros con storytelling y tarjetas de valor.
+- Formulario de contacto funcional con validaciones y simulación de respuesta.
+- Autenticación básica para acceder al panel /admin.
+- Navbar y footer glassmorphism unificados, compatibles con móviles.
 
-## Code scaffolding
+## Requisitos previos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js 18 o superior.
+- Angular CLI 15 (npm install -g @angular/cli).
 
-## Build
+## Instalación
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    npm install
 
-## Running unit tests
+## Ejecutar en desarrollo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    ng serve
 
-## Running end-to-end tests
+Visita http://localhost:4200/ y navega por las rutas principales: /home, /servicios, /nosotros, /contacto y /login (desde allí se accede a /admin tras autenticación).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Construir para producción
 
-## Further help
+    ng build
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Los artefactos quedan en la carpeta dist/.
+
+## Ejecutar pruebas unitarias
+
+    ng test
+
+Actualmente existen pruebas básicas generadas por Angular CLI; agrega más conforme evolucione el proyecto.
+
+## Contacto
+
+- Email: glossaga@gmail.com
+- Teléfono: +57 301 695 3408
+- Dirección: Calle Ficticia #12-34, Cocorná, Antioquia, Colombia
+
+---
+
+Proyecto mantenido por el equipo de Soluciones Digitales Andinas S.A.S.

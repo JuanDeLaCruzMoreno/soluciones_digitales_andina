@@ -3,7 +3,7 @@
   padding: 16px;
 }
 
-/* --- Contenedor CRUD --- */
+
 .crud-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -25,7 +25,7 @@
   color: #5b6ef5;
 }
 
-/* --- Tabla CRUD --- */
+
 .crud-table {
   width: 100%;
   border-collapse: collapse;
@@ -53,7 +53,7 @@
   padding: 20px 0;
 }
 
-/* --- Botones --- */
+
 .btn {
   padding: 6px 10px;
   margin-right: 6px;
@@ -90,7 +90,7 @@
   filter: brightness(0.95);
 }
 
-/* --- Inputs CRUD --- */
+
 input[type="text"],
 input[type="number"],
 select {
@@ -101,7 +101,7 @@ select {
   box-sizing: border-box;
 }
 
-/* --- Tarjetas resumen --- */
+
 .cards-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -176,7 +176,7 @@ select {
 .trend.up { color: #059669; background: rgba(16,185,129,0.08); }
 .trend.down { color: #dc2626; background: rgba(220,53,69,0.06); }
 
-/* --- Responsivo --- */
+
 @media (max-width: 900px) {
   .cards-row {
     grid-template-columns: repeat(2, 1fr);
