@@ -10,11 +10,21 @@ export class ServiciosComponent implements AfterViewInit {
   servicios = SERVICIOS;
   mostrarFlechaIzquierda = false;
   mostrarFlechaDerecha = false;
+  isReady = false;
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
   ngAfterViewInit(): void {
     this.verificarFlechas();
+    const reveal = () => {
+      this.isReady = true;
+    };
+
+    if (typeof window !== 'undefined' && 'requestAnimationFrame' in window) {
+      window.requestAnimationFrame(reveal);
+    } else {
+      setTimeout(reveal, 0);
+    }
   }
 
   scrollIzquierda(): void {

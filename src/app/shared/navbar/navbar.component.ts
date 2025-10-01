@@ -7,9 +7,20 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  menuOpen = false;
+
   constructor(public auth: AuthService) {}
 
-  logout() {
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
+
+  logout(): void {
     this.auth.logout();
+    this.closeMenu();
   }
 }

@@ -1,17 +1,13 @@
-<header class="main-header">
-  <div class="logo-container">
-    <span class="company-name">Soluciones Digitales Andinas S.A.S</span>
+<div class="contact-page-container" [class.is-ready]="isReady">
+  <div class="contact-page__shapes" aria-hidden="true">
+    <span class="contact-page__shape contact-page__shape--one"></span>
+    <span class="contact-page__shape contact-page__shape--two"></span>
+    <span class="contact-page__shape contact-page__shape--three"></span>
   </div>
-  <nav class="nav-links">
-    <a routerLink="/servicios">Servicios</a>
-    <a routerLink="/contacto" class="active">Contacto</a>
-    <a routerLink="/nosotros">Nosotros</a>
-  </nav>
-</header>
 
-<div class="contact-page-container">
   <div class="contact-card shadow-lg">
-    
+    <span class="contact-card__halo" aria-hidden="true"></span>
+
     <!-- Lado de la información -->
     <div class="info-side">
       <div class="sda-badge">SDA</div>
@@ -30,6 +26,26 @@
     <div class="form-side">
       <h3>Contáctanos</h3>
       <p class="subtitle">Envíenos un mensaje y responderemos lo antes posible.</p>
+
+      <div
+        *ngIf="responseMessage"
+        class="feedback-banner"
+        [class.feedback-banner--success]="isSuccess"
+        [class.feedback-banner--error]="!isSuccess"
+        role="status"
+        aria-live="polite"
+      >
+        <span class="feedback-banner__glow" aria-hidden="true"></span>
+        <span class="feedback-banner__icon" aria-hidden="true">
+          <svg *ngIf="isSuccess" viewBox="0 0 24 24" focusable="false">
+            <path fill="currentColor" d="M9.00065 16.1996L4.80065 11.9996L3.40065 13.3996L9.00065 18.9996L21.0006 6.99961L19.6006 5.59961L9.00065 16.1996Z"/>
+          </svg>
+          <svg *ngIf="!isSuccess" viewBox="0 0 24 24" focusable="false">
+            <path fill="currentColor" d="M12 10.586l4.95-4.95 1.414 1.414L13.414 12l4.95 4.95-1.414 1.414L12 13.414l-4.95 4.95-1.414-1.414L10.586 12 5.636 7.05l1.414-1.414L12 10.586z"/>
+          </svg>
+        </span>
+        <span class="feedback-banner__message">{{ responseMessage }}</span>
+      </div>
 
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 

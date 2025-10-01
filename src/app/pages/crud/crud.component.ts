@@ -17,7 +17,7 @@ export class CrudComponent {
   items: Item[] = [];
   nextId = 1;
 
-  // Para edición simple en-línea
+  
   editingId: number | null = null;
   editModel: Partial<Item> = {};
 

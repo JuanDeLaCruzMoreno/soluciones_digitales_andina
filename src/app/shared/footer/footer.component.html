@@ -1,10 +1,54 @@
 <footer class="footer">
-  <div class="info">
-    <p>© 2025 Soluciones Digitales Andinas S.A.S</p>
-    <p>Todos los derechos reservados</p>
+  <div class="footer__shapes" aria-hidden="true">
+    <span class="footer__shape footer__shape--one"></span>
+    <span class="footer__shape footer__shape--two"></span>
   </div>
-  <div class="links">
-    <a routerLink="/politicas">Política de privacidad</a>
-    <a routerLink="/terminos">Términos y condiciones</a>
+
+  <div class="footer__inner">
+    <div class="footer__column footer__column--brand">
+      <div class="footer__logo">
+        <span class="footer__logo-mark">SDA</span>
+      </div>
+      <p class="footer__description">
+        Impulsamos la transformación digital de organizaciones colombianas con soluciones confiables y seguras.
+      </p>
+    </div>
+
+    <div class="footer__column">
+      <h2 class="footer__title">Mapa del sitio</h2>
+      <ul class="footer__links" aria-label="Mapa del sitio">
+        <li><a routerLink="/home">Inicio</a></li>
+        <li><a routerLink="/servicios">Servicios</a></li>
+        <li><a routerLink="/nosotros">Nosotros</a></li>
+        <li><a routerLink="/contacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__column">
+      <h2 class="footer__title">Legal</h2>
+      <ul class="footer__links" aria-label="Enlaces legales">
+        <li><a routerLink="/politicas">Política de privacidad</a></li>
+        <li><a routerLink="/terminos">Términos y condiciones</a></li>
+        <li><a routerLink="/cookies">Política de cookies</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__column footer__column--contact">
+      <h2 class="footer__title">Contáctanos</h2>
+      <ul class="footer__contact">
+        <li>Email: glossaga@gmail.com</li>
+        <li>Teléfono: +57 301 695 3408</li>
+        <li>Calle Ficticia #12-34, Cocorná, Colombia</li>
+      </ul>
+      <div class="footer__social" aria-label="Redes sociales">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Fb</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Ig</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">In</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>© {{ year }} Soluciones Digitales Andinas S.A.S. Todos los derechos reservados.</p>
   </div>
 </footer>
