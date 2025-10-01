@@ -35,6 +35,13 @@
       <a routerLink="/servicios" routerLinkActive="is-active" (click)="closeMenu()">Servicios</a>
       <a routerLink="/contacto" routerLinkActive="is-active" (click)="closeMenu()">Contacto</a>
       <a routerLink="/nosotros" routerLinkActive="is-active" (click)="closeMenu()">Nosotros</a>
+      <a
+        *ngIf="!auth.isAuthenticated()"
+        routerLink="/login"
+        routerLinkActive="is-active"
+        (click)="closeMenu()"
+        class="navbar__login"
+      >Iniciar sesión</a>
       <button
         *ngIf="auth.isAuthenticated()"
         type="button"

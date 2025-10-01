@@ -144,6 +144,30 @@
   transform: scaleX(1);
 }
 
+.navbar__login {
+  padding: 10px 20px !important;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #4338ca, #2563eb) !important;
+  color: #f8fafc !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.navbar__login::after {
+  display: none !important;
+}
+
+.navbar__login:hover,
+.navbar__login:focus-visible {
+  color: #f8fafc !important;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px rgba(30, 64, 175, 0.28);
+}
+
+.navbar__login:focus-visible {
+  outline: 3px solid rgba(96, 165, 250, 0.55);
+  outline-offset: 3px;
+}
+
 .navbar__logout {
   padding: 10px 18px;
   border-radius: 999px;
@@ -204,6 +228,10 @@
   .navbar__menu a,
   .navbar__logout {
     padding: 10px 12px;
+  }
+
+  .navbar__login {
+    padding: 10px 20px !important;
   }
 
   .navbar.is-open .navbar__menu {
