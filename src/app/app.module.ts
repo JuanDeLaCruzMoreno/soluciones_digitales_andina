@@ -11,6 +11,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CrudComponent } from './pages/crud/crud.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { NosotrosComponent } from '../pages/nosotros/nosotros.component';
 import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
 
@@ -23,7 +24,8 @@ import { AuthGuard } from './shared/auth.guard';
     LoginComponent,
     CrudComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule,
