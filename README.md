@@ -39,9 +39,16 @@ Terminal 1 - Backend:
 
 Terminal 2 - Angular:
 
-    npm start
+    npm run start:dev
 
 Visita http://localhost:4200/ y navega por las rutas principales: /home, /servicios, /nosotros, /contacto y /login (desde allí se accede a /admin tras autenticación).
+
+## Ejecutar en produccion (local)
+
+    npm run build
+    npm start
+
+Visita http://localhost:3000/
 
 ## Credenciales de acceso
 
@@ -94,9 +101,19 @@ Endpoints disponibles:
 - PATCH /api/servicios/:id - Actualizar servicio
 - DELETE /api/servicios/:id - Eliminar servicio
 
-## Documentacion adicional
+## Deploy en Render
 
-Ver INSTRUCCIONES_BACKEND.md para detalles sobre el funcionamiento del backend y solución de problemas.
+1. Crear cuenta en render.com
+2. Conectar repositorio GitHub
+3. Configurar:
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+4. Deploy automatico
+
+El proyecto ya esta configurado para produccion. Render ejecutara:
+- `npm install` (instala dependencias)
+- `postinstall` hook ejecuta `ng build` automaticamente
+- `npm start` ejecuta `node server-prod.js`
 
 ## Contacto
 
