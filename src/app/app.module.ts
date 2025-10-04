@@ -15,6 +15,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
+import { ModalServicioComponent } from './pages/crud/modal-servicio/modal-servicio.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthGuard } from './shared/auth.guard';
     CrudComponent,
     NavbarComponent,
     FooterComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    ModalServicioComponent
   ],
   imports: [
     BrowserModule,

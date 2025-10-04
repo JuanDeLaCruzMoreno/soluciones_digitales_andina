@@ -1,0 +1,100 @@
+<div class="modal-overlay" (click)="onCerrar()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>{{ modoEdicion ? 'Editar Servicio' : 'Nuevo Servicio' }}</h2>
+      <button class="btn-close" (click)="onCerrar()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Nombre del servicio *</label>
+        <input 
+          type="text" 
+          [(ngModel)]="nuevoServicio.nombre" 
+          placeholder="Ej: Desarrollo Web"
+          class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Descripción *</label>
+        <textarea 
+          [(ngModel)]="nuevoServicio.descripcion" 
+          placeholder="Describe el servicio..."
+          rows="3"
+          class="form-control"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Precio (COP) *</label>
+          <input 
+            type="number" 
+            [(ngModel)]="nuevoServicio.precio" 
+            placeholder="0"
+            class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>Imagen URL</label>
+          <input 
+            type="text" 
+            [(ngModel)]="nuevoServicio.imagen" 
+            placeholder="assets/img/..."
+            class="form-control">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>
+            <input 
+              type="checkbox" 
+              [(ngModel)]="nuevoServicio.nuevo">
+            Marcar como nuevo
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input 
+              type="checkbox" 
+              [(ngModel)]="nuevoServicio.activo">
+            Servicio activo
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Características</label>
+        <div class="caracteristica-input">
+          <input 
+            type="text" 
+            [(ngModel)]="caracteristicaTemp" 
+            (keyup.enter)="agregarCaracteristica()"
+            placeholder="Escribe una característica y presiona Enter"
+            class="form-control">
+          <button 
+            type="button" 
+            class="btn-add" 
+            (click)="agregarCaracteristica()">
+            +
+          </button>
+        </div>
+        
+        <ul class="caracteristicas-list" *ngIf="nuevoServicio.caracteristicas && nuevoServicio.caracteristicas.length > 0">
+          <li *ngFor="let car of nuevoServicio.caracteristicas; let i = index">
+            {{ car }}
+            <button type="button" class="btn-remove" (click)="eliminarCaracteristica(i)">×</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="onCerrar()">Cancelar</button>
+      <button class="btn btn-primary" (click)="onGuardar()">
+        {{ modoEdicion ? 'Guardar Cambios' : 'Crear Servicio' }}
+      </button>
+    </div>
+  </div>
+</div>

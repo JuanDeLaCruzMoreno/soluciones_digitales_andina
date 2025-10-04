@@ -63,7 +63,6 @@
     <h2>Administrar servicios</h2>
     <div class="actions">
       <button class="btn primary" (click)="addItem()">+ Nuevo</button>
-      <button class="btn" (click)="resetData()" title="Restaurar datos por defecto">🔄 Restaurar</button>
     </div>
   </header>
 
@@ -82,59 +81,18 @@
     <tbody>
       <tr *ngFor="let servicio of servicios" [class.inactive]="servicio.activo === false">
         <td>{{ servicio.id }}</td>
+        <td>{{ servicio.nombre }}</td>
+        <td>{{ servicio.descripcion }}</td>
+        <td>{{ servicio.precio | currency:'COP':'symbol':'1.0-0' }}</td>
+        <td>{{ servicio.nuevo ? '✅' : '❌' }}</td>
         <td>
-          <ng-container *ngIf="editingId !== servicio.id; else editNombre">{{ servicio.nombre }}</ng-container>
-          <ng-template #editNombre>
-            <input type="text" [(ngModel)]="editModel.nombre" />
-          </ng-template>
-        </td>
-        <td>
-          <ng-container *ngIf="editingId !== servicio.id; else editDescripcion">{{ servicio.descripcion }}</ng-container>
-          <ng-template #editDescripcion>
-            <textarea [(ngModel)]="editModel.descripcion" rows="2"></textarea>
-          </ng-template>
-        </td>
-        <td>
-          <ng-container *ngIf="editingId !== servicio.id; else editPrecio">
-            {{ servicio.precio | currency:'COP':'symbol':'1.0-0' }}
-          </ng-container>
-          <ng-template #editPrecio>
-            <input type="number" [(ngModel)]="editModel.precio" />
-          </ng-template>
-        </td>
-        <td>
-          <ng-container *ngIf="editingId !== servicio.id; else editNuevo">
-            {{ servicio.nuevo ? '✅' : '❌' }}
-          </ng-container>
-          <ng-template #editNuevo>
-            <select [(ngModel)]="editModel.nuevo">
-              <option [ngValue]="true">Sí</option>
-              <option [ngValue]="false">No</option>
-            </select>
-          </ng-template>
-        </td>
-        <td>
-          <ng-container *ngIf="editingId !== servicio.id; else editActivo">
-            <span [class.badge-active]="servicio.activo !== false" [class.badge-inactive]="servicio.activo === false">
-              {{ servicio.activo === false ? 'Inactivo' : 'Activo' }}
-            </span>
-          </ng-container>
-          <ng-template #editActivo>
-            <select [(ngModel)]="editModel.activo">
-              <option [ngValue]="true">Activo</option>
-              <option [ngValue]="false">Inactivo</option>
-            </select>
-          </ng-template>
+          <span [class.badge-active]="servicio.activo !== false" [class.badge-inactive]="servicio.activo === false">
+            {{ servicio.activo === false ? 'Inactivo' : 'Activo' }}
+          </span>
         </td>
         <td class="actions-col">
-          <ng-container *ngIf="editingId !== servicio.id; else editButtons">
-            <button class="btn edit" (click)="startEdit(servicio)">Editar</button>
-            <button class="btn danger" (click)="deleteItem(servicio.id)">Eliminar</button>
-          </ng-container>
-          <ng-template #editButtons>
-            <button class="btn primary" (click)="saveEdit()">Guardar</button>
-            <button class="btn" (click)="cancelEdit()">Cancelar</button>
-          </ng-template>
+          <button class="btn edit" (click)="editarServicio(servicio)">Editar</button>
+          <button class="btn danger" (click)="deleteItem(servicio.id)">Eliminar</button>
         </td>
       </tr>
       <tr *ngIf="servicios.length === 0">
@@ -143,3 +101,11 @@
     </tbody>
   </table>
 </div>
+
+<app-modal-servicio 
+  *ngIf="mostrarModal"
+  [servicio]="servicioEditar"
+  [modoEdicion]="modoEdicion"
+  (cerrar)="cerrarModal()"
+  (guardar)="guardarServicio($event)">
+</app-modal-servicio>

@@ -5,7 +5,7 @@
     "imagen": "assets/img/web.jpg",
     "precio": 4500000,
     "descripcion": "Diseño profesional y funcional para empresas.",
-    "nuevo": false,    
+    "nuevo": false,
     "caracteristicas": [
       "Responsive",
       "Optimización SEO básica",

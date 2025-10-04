@@ -10,20 +10,24 @@ import { Subscription } from 'rxjs';
 })
 export class CrudComponent implements OnInit, OnDestroy {
   servicios: Servicio[] = [];
-  editingId: string | null = null;
-  editModel: Partial<Servicio> = {};
   private subscription?: Subscription;
 
   totalServicios: number = 0;
   serviciosActivos: number = 0;
   serviciosNuevos: number = 0;
 
+  mostrarModal: boolean = false;
+  modoEdicion: boolean = false;
+  servicioEditar?: Servicio;
+
   constructor(private crudService: CrudService) {}
 
   ngOnInit(): void {
     this.subscription = this.crudService.servicios$.subscribe(servicios => {
       this.servicios = servicios;
-      this.calcularEstadisticas();
+      if (servicios.length > 0) {
+        this.calcularEstadisticas();
+      }
     });
   }
 
@@ -40,48 +44,49 @@ export class CrudComponent implements OnInit, OnDestroy {
   }
 
   addItem(): void {
-    const nextId = this.crudService.getNextId();
-    const nuevo: Servicio = { 
-      id: nextId, 
-      nombre: 'Nuevo servicio', 
-      imagen: 'assets/img/default.jpg',
-      precio: 0, 
-      descripcion: 'Descripción del servicio',
-      nuevo: true,
-      activo: true,
-      caracteristicas: []
-    };
-    this.crudService.addServicio(nuevo);
-    this.startEdit(nuevo);
+    this.modoEdicion = false;
+    this.servicioEditar = undefined;
+    this.mostrarModal = true;
   }
 
-  startEdit(servicio: Servicio): void {
-    this.editingId = servicio.id;
-    this.editModel = { ...servicio };
+  editarServicio(servicio: Servicio): void {
+    this.modoEdicion = true;
+    this.servicioEditar = servicio;
+    this.mostrarModal = true;
   }
 
-  saveEdit(): void {
-    if (this.editingId == null) return;
-    this.crudService.updateServicio(this.editingId, this.editModel);
-    this.cancelEdit();
+  cerrarModal(): void {
+    this.mostrarModal = false;
+    this.modoEdicion = false;
+    this.servicioEditar = undefined;
   }
 
-  cancelEdit(): void {
-    this.editingId = null;
-    this.editModel = {};
+  guardarServicio(servicio: Servicio): void {
+    if (this.modoEdicion && this.servicioEditar) {
+      this.crudService.updateServicio(this.servicioEditar.id, servicio);
+    } else {
+      const nextId = this.crudService.getNextId();
+      const nuevoServicio: Servicio = {
+        ...servicio,
+        id: nextId
+      };
+      this.crudService.addServicio(nuevoServicio);
+      
+      setTimeout(() => {
+        this.calcularEstadisticas();
+      }, 500);
+    }
+    
+    this.cerrarModal();
   }
 
   deleteItem(id: string): void {
     const ok = confirm('¿Eliminar este servicio?');
     if (!ok) return;
     this.crudService.deleteServicio(id);
-    if (this.editingId === id) this.cancelEdit();
-  }
-
-  resetData(): void {
-    const ok = confirm('¿Recargar servicios desde el archivo JSON original?');
-    if (!ok) return;
-    this.crudService.resetToDefaults();
-    this.cancelEdit();
+    
+    setTimeout(() => {
+      this.calcularEstadisticas();
+    }, 500);
   }
 }
