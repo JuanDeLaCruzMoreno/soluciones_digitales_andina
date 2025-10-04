@@ -1,64 +1,87 @@
-import { Component } from '@angular/core';
-
-interface Item {
-  id: number;
-  nombre: string;
-  categoria: string;
-  precio: number;
-  disponible: boolean;
-}
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CrudService } from 'src/app/shared/crud.service';
+import { Servicio } from 'src/app/shared/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html',
   styleUrls: ['./crud.component.css']
 })
-export class CrudComponent {
-  items: Item[] = [];
-  nextId = 1;
+export class CrudComponent implements OnInit, OnDestroy {
+  servicios: Servicio[] = [];
+  editingId: string | null = null;
+  editModel: Partial<Servicio> = {};
+  private subscription?: Subscription;
 
-  
-  editingId: number | null = null;
-  editModel: Partial<Item> = {};
+  totalServicios: number = 0;
+  serviciosActivos: number = 0;
+  serviciosNuevos: number = 0;
 
-  constructor(){
-    this.loadMock();
+  constructor(private crudService: CrudService) {}
+
+  ngOnInit(): void {
+    this.subscription = this.crudService.servicios$.subscribe(servicios => {
+      this.servicios = servicios;
+      this.calcularEstadisticas();
+    });
   }
 
-  loadMock(){
-    this.items = [
-      { id: this.nextId++, nombre: 'Servicio Web', categoria: 'Web', precio: 1200000, disponible: true },
-      { id: this.nextId++, nombre: 'Diseño UX/UI', categoria: 'UX/UI', precio: 800000, disponible: true },
-      { id: this.nextId++, nombre: 'Automatización', categoria: 'Automation', precio: 1500000, disponible: false },
-    ];
+  calcularEstadisticas(): void {
+    this.totalServicios = this.servicios.length;
+    this.serviciosActivos = this.servicios.filter(s => s.activo !== false).length;
+    this.serviciosNuevos = this.servicios.filter(s => s.nuevo === true).length;
   }
 
-  addItem(){
-    const nuevo: Item = { id: this.nextId++, nombre: 'Nuevo servicio', categoria: 'General', precio: 0, disponible: true };
-    this.items = [nuevo, ...this.items];
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  addItem(): void {
+    const nextId = this.crudService.getNextId();
+    const nuevo: Servicio = { 
+      id: nextId, 
+      nombre: 'Nuevo servicio', 
+      imagen: 'assets/img/default.jpg',
+      precio: 0, 
+      descripcion: 'Descripción del servicio',
+      nuevo: true,
+      activo: true,
+      caracteristicas: []
+    };
+    this.crudService.addServicio(nuevo);
     this.startEdit(nuevo);
   }
 
-  startEdit(item: Item){
-    this.editingId = item.id;
-    this.editModel = { ...item };
+  startEdit(servicio: Servicio): void {
+    this.editingId = servicio.id;
+    this.editModel = { ...servicio };
   }
 
-  saveEdit(){
+  saveEdit(): void {
     if (this.editingId == null) return;
-    this.items = this.items.map(i => i.id === this.editingId ? { ...(i as Item), ...(this.editModel as Item) } : i);
+    this.crudService.updateServicio(this.editingId, this.editModel);
     this.cancelEdit();
   }
 
-  cancelEdit(){
+  cancelEdit(): void {
     this.editingId = null;
     this.editModel = {};
   }
 
-  deleteItem(id: number){
-    const ok = confirm('¿Eliminar este elemento?');
+  deleteItem(id: string): void {
+    const ok = confirm('¿Eliminar este servicio?');
     if (!ok) return;
-    this.items = this.items.filter(i => i.id !== id);
+    this.crudService.deleteServicio(id);
     if (this.editingId === id) this.cancelEdit();
+  }
+
+  resetData(): void {
+    const ok = confirm('¿Recargar servicios desde el archivo JSON original?');
+    if (!ok) return;
+    this.crudService.resetToDefaults();
+    this.cancelEdit();
   }
 }

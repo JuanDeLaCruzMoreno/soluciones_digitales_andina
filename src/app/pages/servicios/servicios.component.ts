@@ -1,18 +1,26 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { SERVICIOS } from 'src/app/data/servicios';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import { DataService, Servicio } from 'src/app/shared/data.service';
 
 @Component({
   selector: 'app-servicios',
   templateUrl: './servicios.component.html',
   styleUrls: ['./servicios.component.css']
 })
-export class ServiciosComponent implements AfterViewInit {
-  servicios = SERVICIOS;
+export class ServiciosComponent implements OnInit, AfterViewInit {
+  servicios: Servicio[] = [];
   mostrarFlechaIzquierda = false;
   mostrarFlechaDerecha = false;
   isReady = false;
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit(): void {
+    this.dataService.getServicios().subscribe(servicios => {
+      this.servicios = servicios;
+    });
+  }
 
   ngAfterViewInit(): void {
     this.verificarFlechas();

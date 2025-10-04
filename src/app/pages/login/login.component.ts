@@ -15,11 +15,13 @@ export class LoginComponent implements AfterViewInit {
   constructor(private auth: AuthService, private router: Router) {}
 
   onLogin() {
-    if (this.auth.login(this.email, this.password)) {
-      this.router.navigate(['/admin']);
-    } else {
-      alert('Correo o contraseña incorrectos');
-    }
+    this.auth.login(this.email, this.password).subscribe(success => {
+      if (success) {
+        this.router.navigate(['/admin']);
+      } else {
+        alert('Correo o contraseña incorrectos');
+      }
+    });
   }
 
   ngAfterViewInit(): void {

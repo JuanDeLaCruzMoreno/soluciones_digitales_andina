@@ -42,14 +42,16 @@
         (click)="closeMenu()"
         class="navbar__login"
       >Iniciar sesión</a>
-      <button
-        *ngIf="auth.isAuthenticated()"
-        type="button"
-        class="navbar__logout"
-        (click)="logout()"
-      >
-        <span>Cerrar sesión</span>
-      </button>
+      <div *ngIf="auth.isAuthenticated()" class="navbar__user">
+        <span class="navbar__username">👤 {{ auth.getUserName() }}</span>
+        <button
+          type="button"
+          class="navbar__logout"
+          (click)="logout()"
+        >
+          <span>Cerrar sesión</span>
+        </button>
+      </div>
     </nav>
   </div>
 </header>

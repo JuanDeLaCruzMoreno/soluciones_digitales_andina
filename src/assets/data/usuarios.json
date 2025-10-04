@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "nombre": "Administrador",
+    "email": "admin@empresa.com",
+    "password": "admin123",
+    "rol": "admin",
+    "activo": true,
+    "fechaCreacion": "2025-01-01"
+  }
+]

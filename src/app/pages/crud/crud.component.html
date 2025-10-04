@@ -1,30 +1,57 @@
 
 <section class="cards-row">
-  <div class="card" *ngFor="let c of [0,1,2]; let i = index">
-    <div class="card-icon" 
-         [ngClass]="{ 'icon-1': i===0, 'icon-2': i===1, 'icon-3': i===2 }">
-      
+  <div class="card">
+    <div class="card-icon icon-1">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
            xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.6)" />
         <path d="M7 12h10" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" />
-        <path *ngIf="i===1" d="M12 7v10" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" />
       </svg>
     </div>
 
     <div class="card-body">
       <div class="card-top">
-        <h3 class="card-title">
-          {{ i===0 ? 'Servicios' : (i===1 ? 'Llamadas' : 'Controles') }}
-        </h3>
-        <span class="trend" [ngClass]="{ 'up': i!==2, 'down': i===2 }">
-          {{ i===2 ? '↓ 25%' : (i===1 ? '↑ 40%' : '↑ 4.8%') }}
-        </span>
+        <h3 class="card-title">Total Servicios</h3>
       </div>
-      <div class="card-value">
-        {{ i===0 ? 120 : (i===1 ? 110 : 10) }}
+      <div class="card-value">{{ totalServicios }}</div>
+      <div class="card-sub">servicios registrados</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon icon-2">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.6)" />
+        <path d="M7 12h10" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" />
+        <path d="M12 7v10" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <div class="card-body">
+      <div class="card-top">
+        <h3 class="card-title">Servicios Activos</h3>
       </div>
-      <div class="card-sub">desde la semana pasada</div>
+      <div class="card-value">{{ serviciosActivos }}</div>
+      <div class="card-sub">disponibles para clientes</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-icon icon-3">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.6)" />
+        <path d="M7 12h10" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <div class="card-body">
+      <div class="card-top">
+        <h3 class="card-title">Servicios Nuevos</h3>
+      </div>
+      <div class="card-value">{{ serviciosNuevos }}</div>
+      <div class="card-sub">marcados como nuevos</div>
     </div>
   </div>
 </section>
@@ -36,6 +63,7 @@
     <h2>Administrar servicios</h2>
     <div class="actions">
       <button class="btn primary" (click)="addItem()">+ Nuevo</button>
+      <button class="btn" (click)="resetData()" title="Restaurar datos por defecto">🔄 Restaurar</button>
     </div>
   </header>
 
@@ -44,50 +72,64 @@
       <tr>
         <th>ID</th>
         <th>Nombre</th>
-        <th>Categoría</th>
+        <th>Descripción</th>
         <th>Precio</th>
-        <th>Disponible</th>
+        <th>Nuevo</th>
+        <th>Estado</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items">
-        <td>{{ item.id }}</td>
+      <tr *ngFor="let servicio of servicios" [class.inactive]="servicio.activo === false">
+        <td>{{ servicio.id }}</td>
         <td>
-          <ng-container *ngIf="editingId !== item.id; else editNombre">{{ item.nombre }}</ng-container>
+          <ng-container *ngIf="editingId !== servicio.id; else editNombre">{{ servicio.nombre }}</ng-container>
           <ng-template #editNombre>
             <input type="text" [(ngModel)]="editModel.nombre" />
           </ng-template>
         </td>
         <td>
-          <ng-container *ngIf="editingId !== item.id; else editCategoria">{{ item.categoria }}</ng-container>
-          <ng-template #editCategoria>
-            <input type="text" [(ngModel)]="editModel.categoria" />
+          <ng-container *ngIf="editingId !== servicio.id; else editDescripcion">{{ servicio.descripcion }}</ng-container>
+          <ng-template #editDescripcion>
+            <textarea [(ngModel)]="editModel.descripcion" rows="2"></textarea>
           </ng-template>
         </td>
         <td>
-          <ng-container *ngIf="editingId !== item.id; else editPrecio">
-            {{ item.precio | currency:'COP':'symbol':'1.0-0' }}
+          <ng-container *ngIf="editingId !== servicio.id; else editPrecio">
+            {{ servicio.precio | currency:'COP':'symbol':'1.0-0' }}
           </ng-container>
           <ng-template #editPrecio>
             <input type="number" [(ngModel)]="editModel.precio" />
           </ng-template>
         </td>
         <td>
-          <ng-container *ngIf="editingId !== item.id; else editDisponible">
-            {{ item.disponible ? 'Sí' : 'No' }}
+          <ng-container *ngIf="editingId !== servicio.id; else editNuevo">
+            {{ servicio.nuevo ? '✅' : '❌' }}
           </ng-container>
-          <ng-template #editDisponible>
-            <select [(ngModel)]="editModel.disponible">
+          <ng-template #editNuevo>
+            <select [(ngModel)]="editModel.nuevo">
               <option [ngValue]="true">Sí</option>
               <option [ngValue]="false">No</option>
             </select>
           </ng-template>
         </td>
+        <td>
+          <ng-container *ngIf="editingId !== servicio.id; else editActivo">
+            <span [class.badge-active]="servicio.activo !== false" [class.badge-inactive]="servicio.activo === false">
+              {{ servicio.activo === false ? 'Inactivo' : 'Activo' }}
+            </span>
+          </ng-container>
+          <ng-template #editActivo>
+            <select [(ngModel)]="editModel.activo">
+              <option [ngValue]="true">Activo</option>
+              <option [ngValue]="false">Inactivo</option>
+            </select>
+          </ng-template>
+        </td>
         <td class="actions-col">
-          <ng-container *ngIf="editingId !== item.id; else editButtons">
-            <button class="btn edit" (click)="startEdit(item)">Editar</button>
-            <button class="btn danger" (click)="deleteItem(item.id)">Eliminar</button>
+          <ng-container *ngIf="editingId !== servicio.id; else editButtons">
+            <button class="btn edit" (click)="startEdit(servicio)">Editar</button>
+            <button class="btn danger" (click)="deleteItem(servicio.id)">Eliminar</button>
           </ng-container>
           <ng-template #editButtons>
             <button class="btn primary" (click)="saveEdit()">Guardar</button>
@@ -95,8 +137,8 @@
           </ng-template>
         </td>
       </tr>
-      <tr *ngIf="items.length === 0">
-        <td colspan="6" class="empty">No hay elementos.</td>
+      <tr *ngIf="servicios.length === 0">
+        <td colspan="7" class="empty">No hay servicios.</td>
       </tr>
     </tbody>
   </table>

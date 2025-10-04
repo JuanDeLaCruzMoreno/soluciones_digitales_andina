@@ -93,12 +93,45 @@
 
 input[type="text"],
 input[type="number"],
+textarea,
 select {
   padding: 6px 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.badge-active,
+.badge-inactive {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-active {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.badge-inactive {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+tr.inactive {
+  opacity: 0.6;
+  background: #f9fafb;
+}
+
+tr.inactive td {
+  color: #6b7280;
 }
 
 
