@@ -7,7 +7,7 @@ import { Servicio } from './data.service';
   providedIn: 'root'
 })
 export class CrudService {
-  private readonly API_URL = 'http://localhost:3000/api/servicios';
+  private readonly API_URL = '/api/servicios';
   private serviciosSubject: BehaviorSubject<Servicio[]>;
   public servicios$: Observable<Servicio[]>;
 
